@@ -142,3 +142,65 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// Destructring
+
+const book = getBook(1);
+book;
+// const title = book.title
+// const author = book.author
+
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+  book;
+
+title;
+author;
+genres;
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+// const [primaryGenre, secondaryGenre] = genres;
+
+// console.log(primaryGenre, secondaryGenre);
+
+// spread operators
+
+const [primaryGenre, ...otherGenres] = genres;
+
+const newGenre = [...genres, "epic fantasy"];
+newGenre;
+
+// how to add new property
+const updatedBook = {
+  ...book,
+  // Adding a new property
+  // Overridng a existing property
+  moviePublicationDate: "2001-12-19",
+  // overwriting an existing property
+  pages: 1210,
+};
+updatedBook;
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+// template literals
+const summary = `${title}, a {pages}-page long book, was written by ${author} and published in ${getYear(publicationDate)}, The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie`;
+summary;
+
+const pagesRnge = pages > 1000 ? "over a thousand" : "less than one thousand";
+pagesRnge;
+console.log(`The book has ${pagesRnge} pages`);
+
+// Short circuiting
+console.log(true && "some string")
+console.log(false && "some string")
+console.log(hasMovieAdaptation && "This book has a movie")
+
+// fasly: 0, "", null, undefined
+console.log('jonas' && 'Some String')
+console.log(0 && 'Some String')  // using falsy value
+
+
+console.log(true || "Some string")
+console.log(false || "Some string")
