@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-
 const pizzaData = [
   {
     name: "Focaccia",
@@ -68,15 +67,18 @@ function Header() {
 
 function Menu() {
   const pizzas = pizzaData;
+  const numPizzas = pizzas.length;
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      {pizzas && (
+      {numPizzas > 0 ? (
         <ul className="pizzas">
           {pizzas.map((pizza) => (
             <Pizza key={pizza.name} pizzObj={pizza} />
           ))}
         </ul>
+      ) : (
+        <p>We're still working on our menu. Please come back later</p>
       )}
     </main>
   );
@@ -88,7 +90,7 @@ function Pizza(props) {
       <img src={props.pizzObj.photoName} alt={props.pizzObj.name} />
       <div>
         <h3>{props.pizzObj.name}</h3>
-        <p>{props.pizzObj.ingredient}</p>
+        <p>{props.pizzObj.ingredients}</p>
         <span>{`${props.pizzObj.price + 3}`}</span>
       </div>
     </li>
@@ -106,11 +108,15 @@ function Footer() {
   return (
     <footer className="footer">
       {/* This is called short circuiting */}
-      {isOpen && (
+      {isOpen ? (
         <div className="order">
           <p>We're open until {closeHour}:00. come visit us or order online</p>
           <button className="btn">Order</button>
         </div>
+      ) : (
+        <p>
+          We're happy to wlecome you between {openHour}:00 and {closeHour}:00
+        </p>
       )}
       {/* {new Date().toLocaleTimeString()} We're currently open */}
     </footer>
