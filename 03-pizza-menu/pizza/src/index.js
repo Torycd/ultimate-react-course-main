@@ -85,8 +85,9 @@ function Menu() {
 }
 
 function Pizza(props) {
+  //   if (props.pizzObj.soldOut) return null;
   return (
-    <li className="pizza">
+    <li className={props.pizzObj.soldOut ? "pizza sold-out" : "pizza"}>
       <img src={props.pizzObj.photoName} alt={props.pizzObj.name} />
       <div>
         <h3>{props.pizzObj.name}</h3>
@@ -109,10 +110,7 @@ function Footer() {
     <footer className="footer">
       {/* This is called short circuiting */}
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. come visit us or order online</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
         <p>
           We're happy to wlecome you between {openHour}:00 and {closeHour}:00
@@ -120,6 +118,17 @@ function Footer() {
       )}
       {/* {new Date().toLocaleTimeString()} We're currently open */}
     </footer>
+  );
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        We're open until {props.closeHour}:00. come visit us or order online
+      </p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
