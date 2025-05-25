@@ -1,8 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import DATA from "./data";
 
 function App() {
-  return <h1>Hello React!</h1>;
+  return <Pizza />;
+}
+
+function Pizza() {
+  return (
+    <div>
+      <h2>Pizza</h2>
+      <p>Tomato, mozarella, spinach, and rioctta cheese</p>
+    </div>
+  );
 }
 
 // React v18
