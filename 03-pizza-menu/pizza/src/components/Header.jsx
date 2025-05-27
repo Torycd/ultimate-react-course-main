@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import "../index.css";
 
 const Header = () => {
   return (
-    <div>Header</div>
-  )
-}
+    <header className="header">
+      <h1>Fast React Pizza Company</h1>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
