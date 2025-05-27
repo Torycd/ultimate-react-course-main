@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 
 const messages = [
@@ -8,10 +8,18 @@ const messages = [
 ];
 
 const App = () => {
-  const step = 1;
-  
-  const handlePrevious = () => {};
-  const handleNext = () => {};
+  const [step, setStep] = useState(1);
+
+  const handlePrevious = () => {
+    if (step > 1) {
+      setStep(step - 1);
+    }
+  };
+  const handleNext = () => {
+    if (step < 3) {
+      setStep(step + 1);
+    }
+  };
   return (
     <div className="steps">
       <div className="numbers">
