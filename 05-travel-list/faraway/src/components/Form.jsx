@@ -14,7 +14,7 @@ const Form = () => {
       <select
         value={quantity}
         onChange={(e) => {
-          setQuantity(e.target.value);
+          setQuantity(Number(e.target.value));
           console.log(e.target.value);
         }}
       >
