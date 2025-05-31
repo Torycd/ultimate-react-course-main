@@ -14,8 +14,8 @@ const Form = () => {
       <select
         value={quantity}
         onChange={(e) => {
-          console.log(e.target.value);
           setQuantity(e.target.value);
+          console.log(e.target.value);
         }}
       >
         {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
