@@ -3,12 +3,16 @@ import "../index.css";
 
 const Form = () => {
   const [description, setDescription] = useState("");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
   function handleSubmit(e) {
     e.preventDefault();
+    if (!description) return;
     // console.log(e);
     const newItem = { description, quantity, packed: false, id: Date.now() };
     console.log(newItem);
+
+    setDescription("");
+    setQuantity(1);
   }
   return (
     <form className="add-form" onSubmit={handleSubmit}>
