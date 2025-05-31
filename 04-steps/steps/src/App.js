@@ -22,7 +22,7 @@ const App = () => {
     }
   };
   return (
-    <div>
+    <>
       <button
         className="close"
         onClick={() => {
@@ -57,7 +57,7 @@ const App = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
