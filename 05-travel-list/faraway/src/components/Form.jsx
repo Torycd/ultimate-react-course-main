@@ -7,6 +7,8 @@ const Form = () => {
   function handleSubmit(e) {
     e.preventDefault();
     // console.log(e);
+    const newItem = { description, quantity, packed: false, id: Date.now() };
+    console.log(newItem);
   }
   return (
     <form className="add-form" onSubmit={handleSubmit}>
