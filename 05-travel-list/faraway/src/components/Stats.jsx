@@ -3,7 +3,7 @@ import "../index.css";
 
 const Stats = () => {
   return (
-    <footer>
+    <footer className="stats">
       <em>💼You have x items on your list, and you already packed X (X%)</em>
     </footer>
   );

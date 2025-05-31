@@ -1,10 +1,17 @@
-import React from 'react'
-import "../index.css"
+import React from "react";
+import Item from "./Item";
+import "../index.css";
 
-const PackingList = () => {
+const PackingList = ({ initialItems }) => {
   return (
-    <div className='list'>LIST</div>
-  )
-}
+    <div className="list">
+      <ul>
+        {initialItems.map((item) => (
+          <Item item={item} key={item.id} />
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default PackingList
+export default PackingList;
