@@ -4,11 +4,9 @@ import Form from "./components/Form";
 import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
 
-
-
 const App = () => {
   const [items, setItems] = useState([]);
-  
+
   function handleItems(item) {
     setItems((items) => [...items, item]);
   }
@@ -24,6 +22,13 @@ const App = () => {
     );
   }
 
+  function handleClear() {
+    const confirmed = window.confirm(
+      "Are ypu sure you want to delete all item"
+    );
+    if (confirmed) setItems([]);
+  }
+
   return (
     <div className="app">
       <Logo />
@@ -32,6 +37,7 @@ const App = () => {
         handleToggleItem={handleToggleItem}
         onDelete={handleDeleteItem}
         items={items}
+        onClear={handleClear}
       />
       <Stats items={items} />
     </div>
