@@ -8,6 +8,7 @@ import Stats from "./components/Stats";
 
 const App = () => {
   const [items, setItems] = useState([]);
+  
   function handleItems(item) {
     setItems((items) => [...items, item]);
   }
