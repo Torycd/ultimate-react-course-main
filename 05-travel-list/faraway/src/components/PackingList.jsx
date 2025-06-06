@@ -4,12 +4,12 @@ import "../index.css";
 
 
 
-const PackingList = ({ items, onDelete }) => {
+const PackingList = ({ items, onDelete, handleToggleItem }) => {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item item={item} onDelete={onDelete} key={item.id} />
+          <Item onToggleItems={handleToggleItem} item={item} onDelete={onDelete} key={item.id} />
         ))}
       </ul>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../index.css";
 
-const Form = ({onAddItems}) => {
+const Form = ({ onAddItems }) => {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 

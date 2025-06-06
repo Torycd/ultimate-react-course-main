@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-const Item = ({ item, onDelete }) => {
-  const [] = useState()
+const Item = ({ item, onDelete, onToggleItems }) => {
   return (
     <li>
-      <input type="checkbox" value={item.packed} onChange={()=>{}}/>
+      <input
+        type="checkbox"
+        value={item.packed}
+        onChange={() => onToggleItems(item.id)}
+      />
       <span style={item.packed ? { textDecoration: "line-through" } : {}}>
         {item.quantity} {item.description}
       </span>
