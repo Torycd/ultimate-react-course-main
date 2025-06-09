@@ -26,13 +26,12 @@ const initialFriends = [
 ];
 
 const App = () => {
-  const [addFriend, setAddFriend] = useState(false);
   const [list, setList] = useState(initialFriends);
+  const [addFriend, setAddFriend] = useState(false);
 
   function handleAdd(newFriend) {
     setList((oldFriends) => [...oldFriends, newFriend]);
   }
- 
 
   return (
     <div className="app">
