@@ -2,7 +2,7 @@ import React from "react";
 import "../index.css";
 import Button from "./Button";
 
-const FormSplitBill = () => {
+const FormSplitBill = ({ selectedFriend }) => {
   return (
     <form className="form-split-bill">
       <label>💰 Bill Value</label>
@@ -11,13 +11,13 @@ const FormSplitBill = () => {
       <label>🕴 Your Expense</label>
       <input type="text" />
 
-      <label>X's expenses</label>
+      <label>{selectedFriend.name}'s expenses</label>
       <input type="text" disabled />
 
       <label>🤑 Who is paying the bill</label>
       <select>
-        <option value='user'>You</option>
-        <option value='friend'>X</option>
+        <option value="user">You</option>
+        <option value="friend">{selectedFriend.name}</option>
       </select>
 
       <Button>Split Bill</Button>
