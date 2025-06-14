@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import List from "./List";
-import WatchedBox from "./WatchedBox";
+import React from "react";
 
-const Main = ({ tempMovieData, tempWatchedData }) => {
-  const [movies, setMovies] = useState(tempMovieData);
+const Main = ({ children }) => {
+  
 
   return (
     <main className="main">
-      <List movies={movies} />
-      <WatchedBox tempWatchedData={tempWatchedData} />
+      {children}
     </main>
   );
 };
