@@ -5,7 +5,6 @@ const average = (arr) =>
 
 const WatchedBox = ({tempWatchedData}) => {
   const [watched, setWatched] = useState(tempWatchedData);
-
   const [isOpen2, setIsOpen2] = useState(true);
 
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
