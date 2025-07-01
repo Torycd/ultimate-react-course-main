@@ -1,11 +1,12 @@
 import Movie from "./Movie";
+import "../index.css";
 // import WatchedBox from "./WatchedBox";
 
-const Movielist = ({ movies }) => {
+const Movielist = ({ movies, onSelectMovie }) => {
   return (
-    <ul className="list">
+    <ul className="list list-movies">
       {movies?.map((movie) => (
-        <Movie movie={movie} key={movie.imdbID} />
+        <Movie onSelectMovie={onSelectMovie} movie={movie} key={movie.imdbID} />
       ))}
     </ul>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Movie = ({ movie, onSelectMovie }) => {
+const Movie = ({ movie }) => {
   return (
-    <li onClick={() => onSelectMovie(movie.imdbID)}>
+    <li>
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
       <div>
