@@ -1,5 +1,4 @@
-
-const IndividualMovie = ({ movie }) => {
+const IndividualMovie = ({ movie, handleDeleteWatched }) => {
   return (
     <li key={movie.imdbID}>
       <img src={movie.poster} alt={`${movie.title} poster`} />
@@ -17,6 +16,11 @@ const IndividualMovie = ({ movie }) => {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
+
+        <button
+          className="btn-delete"
+          onClick={() => handleDeleteWatched(movie.imdbID)}
+        >X</button>
       </div>
     </li>
   );
