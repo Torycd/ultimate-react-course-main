@@ -4,9 +4,17 @@ import Loader from "./Loader";
 
 const KEY = "79f76b4c";
 
-const SelectedMovie = ({ selectedId, handleCloseMovie, onAddWatched }) => {
+const SelectedMovie = ({
+  selectedId,
+  handleCloseMovie,
+  onAddWatched,
+  watched,
+}) => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsloadiing] = useState(false);
+  const [userRating, setUserRating] = useState("");
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const {
     Title: title,
     Year: year,
@@ -28,9 +36,10 @@ const SelectedMovie = ({ selectedId, handleCloseMovie, onAddWatched }) => {
       poster,
       imdbRating: Number(imdbRating),
       runtime: runtime.split("").at(0), //
+      userRating,
     };
     onAddWatched(newWatchedMovie);
-    handleCloseMovie()
+    handleCloseMovie();
   };
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -70,10 +79,23 @@ const SelectedMovie = ({ selectedId, handleCloseMovie, onAddWatched }) => {
             </div>
           </header>
           <div className="rating">
-            <StarRating maxRating={10} size={24} defaultRating={imdbRating} />
-            <button className="btn-add" onClick={handleAdd}>
-              Add to list
-            </button>
+            {!isWatched ? (
+              <>
+                <StarRating
+                  maxRating={10}
+                  size={24}
+                  onSetRating={setUserRating}
+                  defaultRating={imdbRating}
+                />
+                {userRating > 0 && (
+                  <button className="btn-add" onClick={handleAdd}>
+                    Add to list
+                  </button>
+                )}
+              </>
+            ) : (
+              <p>You rated w ith movie</p>
+            )}
           </div>
           <section>
             <p>
