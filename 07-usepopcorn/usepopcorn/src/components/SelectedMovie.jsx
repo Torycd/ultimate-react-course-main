@@ -4,7 +4,7 @@ import Loader from "./Loader";
 
 const KEY = "79f76b4c";
 
-const SelectedMovie = ({ selectedId, handleCloseMovie }) => {
+const SelectedMovie = ({ selectedId, handleCloseMovie, onAddWatched }) => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsloadiing] = useState(false);
   const {
@@ -19,6 +19,19 @@ const SelectedMovie = ({ selectedId, handleCloseMovie }) => {
     Director: director,
     Genre: genre,
   } = movie;
+
+  const handleAdd = () => {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      poster,
+      imdbRating: Number(imdbRating),
+      runtime: runtime.split("").at(0), //
+    };
+    onAddWatched(newWatchedMovie);
+    handleCloseMovie()
+  };
   useEffect(() => {
     const getMovieDetails = async () => {
       try {
@@ -58,6 +71,9 @@ const SelectedMovie = ({ selectedId, handleCloseMovie }) => {
           </header>
           <div className="rating">
             <StarRating maxRating={10} size={24} defaultRating={imdbRating} />
+            <button className="btn-add" onClick={handleAdd}>
+              Add to list
+            </button>
           </div>
           <section>
             <p>
