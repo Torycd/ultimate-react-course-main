@@ -67,7 +67,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState(null);
 
   const handleSelectMovie = (id) => {
-    setSelectedId(selectedId => id === selectedId ? null : id);
+    setSelectedId((selectedId) => (id === selectedId ? null : id));
   };
 
   const handleCloseMovie = () => {
@@ -110,7 +110,6 @@ export default function App() {
 
       <Main>
         <Box>
-          {/* {isLoading ? <Loader /> : <Movielist movies={movies} />} */}
           {isLoading && <Loader />}
           {!isLoading && !error && (
             <Movielist movies={movies} onSelectMovie={handleSelectMovie} />
@@ -120,7 +119,10 @@ export default function App() {
 
         <Box>
           {selectedId ? (
-            <SelectedMovie selectedId={selectedId} handleCloseMovie={handleCloseMovie} />
+            <SelectedMovie
+              selectedId={selectedId}
+              handleCloseMovie={handleCloseMovie}
+            />
           ) : (
             <>
               <WatchedSummary watched={watched} />
