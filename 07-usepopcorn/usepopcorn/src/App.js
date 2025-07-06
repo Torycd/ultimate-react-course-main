@@ -59,7 +59,7 @@ const tempWatchedData = [
 
 const KEY = "79f76b4c";
 export default function App() {
-  const [query, setQuery] = useState("Inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState(tempWatchedData);
   const [isLoading, setIsLoading] = useState(false);
@@ -112,6 +112,7 @@ export default function App() {
       setError("");
       return;
     }
+    handleCloseMovie()
     fetchMovies();
 
     return function () {

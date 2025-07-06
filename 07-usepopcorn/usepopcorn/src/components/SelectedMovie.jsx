@@ -44,6 +44,20 @@ const SelectedMovie = ({
     onAddWatched(newWatchedMovie);
     handleCloseMovie();
   };
+
+  useEffect(() => {
+    const callback = (e) => {
+      if (e.code === "Escape") {
+        handleCloseMovie();
+      }
+    };
+    document.addEventListener("keydown", callback);
+
+    return () => {
+      document.removeEventListener("keydown", callback);
+    };
+  }, [handleCloseMovie]);
+
   useEffect(() => {
     const getMovieDetails = async () => {
       try {
@@ -60,13 +74,13 @@ const SelectedMovie = ({
   }, [selectedId]);
 
   useEffect(() => {
-    if (!title) return
+    if (!title) return;
     document.title = `MOVIE | ${title}`;
 
     return () => {
-      document.title = 'usePopcorn'
-    }
-  }, [title])
+      document.title = "usePopcorn";
+    };
+  }, [title]);
   return (
     <div className="details">
       {isLoading ? (
