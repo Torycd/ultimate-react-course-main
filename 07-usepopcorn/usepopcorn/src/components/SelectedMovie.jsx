@@ -31,6 +31,7 @@ const SelectedMovie = ({
     Genre: genre,
   } = movie;
 
+  // const [abgrating, setAvgRating] = useState()
   const handleAdd = () => {
     const newWatchedMovie = {
       imdbID: selectedId,
@@ -57,6 +58,11 @@ const SelectedMovie = ({
       document.removeEventListener("keydown", callback);
     };
   }, [handleCloseMovie]);
+
+
+  // const isTop = imdbRating > 0;
+  // console.log(isTop)
+
 
   useEffect(() => {
     const getMovieDetails = async () => {
