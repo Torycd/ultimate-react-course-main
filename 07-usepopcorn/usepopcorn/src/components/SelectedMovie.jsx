@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
+import { useKey } from "../useKey";
 
 const KEY = "79f76b4c";
 
@@ -24,7 +25,7 @@ const SelectedMovie = ({
   const watcheduserRating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
-  
+
   const {
     Title: title,
     Year: year,
@@ -66,6 +67,8 @@ const SelectedMovie = ({
       document.removeEventListener("keydown", callback);
     };
   }, [handleCloseMovie]);
+
+  useKey("Escape", handleCloseMovie);
 
   // const isTop = imdbRating > 0;
   // console.log(isTop)
