@@ -55,19 +55,6 @@ const SelectedMovie = ({
     handleCloseMovie();
   };
 
-  useEffect(() => {
-    const callback = (e) => {
-      if (e.code === "Escape") {
-        handleCloseMovie();
-      }
-    };
-    document.addEventListener("keydown", callback);
-
-    return () => {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [handleCloseMovie]);
-
   useKey("Escape", handleCloseMovie);
 
   // const isTop = imdbRating > 0;
